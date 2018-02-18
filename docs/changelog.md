@@ -90,6 +90,13 @@ Fixed
   - Versioneer settings
 
 
+## v0.22.2 - 2015/07/18
+
+Fixed
+
+  - Versioneer settings
+
+
 ## v0.22.1 - 2015/07/18
 
 Updated
