@@ -64,6 +64,7 @@ init:
   - "ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%"
 
 install:
+  - cinst pywin32
   - ECHO "Filesystem root:"
   - ps: "ls \"C:/\""
 
