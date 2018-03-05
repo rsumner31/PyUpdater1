@@ -145,11 +145,9 @@ setup_config = {
 
 # Deprecated
 # This is the default config used
-class SetupConfig(object):
-    """Default config object
-    """
+SetupConfig = {
     # If left None "Not_So_TUF" will be used
-    APP_NAME = None
+    'APP_NAME': settings.GENERIC_APP_NAME,
 
     # Company/Your name
     COMPANY_NAME = None
