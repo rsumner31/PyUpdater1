@@ -10,6 +10,11 @@ from tconfig import TConfig
 import pytest
 
 
+collect_ignore = [u"pyupdater/_version.py",
+                  u"pyupdater/hooks/hook-cryptography",
+                  u"pyupdater/hooks/hook-markdown"]
+
+
 @pytest.fixture
 def cleandir():
     newpath = tempfile.mkdtemp()
