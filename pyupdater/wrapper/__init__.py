@@ -136,6 +136,19 @@ def init(args):  # pragma: no cover
         sys.exit('Not an empty PyUpdater repository')
 
 
+def keys(args):
+    if args.yes is True:
+        _keys(args)
+
+    else:
+        answer = ask_yes_no('Are you sure you want to revoke?',
+                            default='no')
+        if answer is True:
+            _keys(args)
+        else:
+            log.info('Revoke aborted!')
+
+
 # Revokes keys
 def keys(args):  # pragma: no cover
     if args.yes is True:
