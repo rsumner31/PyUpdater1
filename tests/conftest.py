@@ -51,9 +51,8 @@ def pyu():
 
 
 @pytest.fixture
-def client():
+def pyu():
     t_config = TConfig()
     t_config.DATA_DIR = os.getcwd()
-    client = Client(t_config, refresh=True, test=True)
-    client.FROZEN = True
-    return client
+    pyu = PyUpdater(t_config)
+    return pyu
