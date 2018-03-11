@@ -7,18 +7,9 @@
 # The full license is in the file COPYING.txt, distributed with this software.
 #-----------------------------------------------------------------------------
 
+# Hook for speech_recognition: https://pypi.python.org/pypi/SpeechRecognition/
+# Tested on Windows 8.1 x64 with SpeechRecognition 1.5
 
-import os
-import sys
+from PyInstaller.hooks.hookutils import collect_data_files
 
-
-basedir = sys._MEIPASS
-
-
-tcldir = os.path.join(basedir, '_MEI', 'tcl')
-tkdir = os.path.join(basedir, '_MEI', 'tk')
-
-
-# Directories with .tcl files.
-os.environ["TCL_LIBRARY"] = tcldir
-os.environ["TK_LIBRARY"] = tkdir
+datas = collect_data_files("speech_recognition")
