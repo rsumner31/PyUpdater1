@@ -15,10 +15,8 @@
 # --------------------------------------------------------------------------
 import logging
 import os
-import pickle
 
 from pyupdater import settings
-from pyupdater.storage import Storage
 
 log = logging.getLogger(__name__)
 
@@ -27,7 +25,7 @@ class Loader(object):
     """Loads &  saves config file
     """
 
-    def __init__(self):
+    def __init__(self, db):
         self.cwd = os.getcwd()
         self.config_dir = os.path.join(self.cwd, settings.CONFIG_DATA_FOLDER)
         self.db = Storage(self.cwd)

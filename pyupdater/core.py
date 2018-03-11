@@ -19,6 +19,7 @@ import os
 
 from pyupdater.key_handler import KeyHandler
 from pyupdater.package_handler import PackageHandler
+from pyupdater.storage import Storage
 from pyupdater.uploader import Uploader
 from pyupdater.utils.config import TransistionDict
 from pyupdater.utils.storage import Storage
@@ -66,13 +67,13 @@ class Core(object):
         self.ph.setup()
 
     def process_packages(self):
-        """Creates hash for updates & adds information about update to
+        u"""Creates hash for updates & adds information about update to
         version file
         """
         self.ph.process_packages()
 
     def set_uploader(self, requested_uploader):
-        """Sets upload destination
+        u"""Sets upload destination
 
         Args:
 
@@ -95,13 +96,13 @@ class Core(object):
         return self.kh.get_recent_revoked_key()
 
     def sign_update(self):
-        "Signs version file with signing key"
+        u"Signs version file with signing key"
         self.kh.sign_update()
 
     def get_public_keys(self):
-        "Returns public key"
+        u"Returns public key"
         return self.kh.get_public_keys()
 
     def print_public_key(self):
-        "Prints public key to console"
+        u"Prints public key to console"
         self.kh.print_public_key()

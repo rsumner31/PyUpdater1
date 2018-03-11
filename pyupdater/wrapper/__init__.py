@@ -375,6 +375,7 @@ def _real_main(args):  # pragma: no cover
 def main(args=None):  # pragma: no cover
     try:
         _real_main(args)
+        exit = 0
     except KeyboardInterrupt:
         print('\n')
         msg = 'Exited by user'

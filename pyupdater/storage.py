@@ -26,7 +26,7 @@ log = logging.getLogger(__name__)
 class Storage(object):
 
     def __init__(self, data_dir=None):
-        """Loads & saves config file to file-system
+        u"""Loads & saves config file to file-system
 
             Args:
 
@@ -44,7 +44,7 @@ class Storage(object):
         log.debug('Config db path: {}'.format(self.filename))
 
     def save(self, key, value):
-        """Saves key & value to database
+        u"""Saves key & value to database
 
         Args:
 
@@ -53,16 +53,19 @@ class Storage(object):
             value (obj): python object to store in database
 
         """
+        if self.db is None:
+            self.load_db()
+
         if isinstance(key, unicode) is True:
-            log.debug('Key Name: {}'.format(key))
-            log.debug('Key type: {}'.format(type(key)))
+            log.debug(u'Key Name: {}'.format(key))
+            log.debug(u'Key type: {}'.format(type(key)))
             key = str(key)
         db = shelve.open(self.filename)
         db[key] = value
         db.close()
 
     def load(self, key):
-        """Loads value for given key
+        u"""Loads value for given key
 
             Args:
 
@@ -73,9 +76,12 @@ class Storage(object):
 
                 Object if exists or else None
         """
+        if self.db is None:
+            self.load_db()
+
         if isinstance(key, unicode) is True:
-            log.debug('Key Name: {}'.format(key))
-            log.debug('Key type: {}'.format(type(key)))
+            log.debug(u'Key Name: {}'.format(key))
+            log.debug(u'Key type: {}'.format(type(key)))
             key = str(key)
         db = shelve.open(self.filename)
         value = db.get(key)
