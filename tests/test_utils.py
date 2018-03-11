@@ -163,6 +163,16 @@ class TestUtils(object):
             p = Package('pyu-wi-1.1.tar.gz')
         assert p.info[u'reason'] == u'Package platform not formatted correctly'
 
+    def test_package_bad_version(self):
+        with ChDir(TEST_DATA_DIR):
+            p = Package('pyu-win-1.tar.gz')
+        assert p.info[u'reason'] == u'Package version not formatted correctly'
+
+    def test_package_bad_platform(self):
+        with ChDir(TEST_DATA_DIR):
+            p = Package('pyu-wi-1.1.tar.gz')
+        assert p.info[u'reason'] == u'Package platform not formatted correctly'
+
     def test_package_ignored_file(self):
         test_file_3 = '.DS_Store'
         with ChDir(TEST_DATA_DIR):
