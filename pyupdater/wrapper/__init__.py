@@ -136,6 +136,7 @@ def init(args):  # pragma: no cover
         sys.exit('Not an empty PyUpdater repository')
 
 
+# Revokes keys
 def keys(args):  # pragma: no cover
     if args.yes is True:
         _keys(args)
