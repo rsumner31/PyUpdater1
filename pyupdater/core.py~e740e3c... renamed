@@ -13,15 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # --------------------------------------------------------------------------
-from __future__ import unicode_literals
-
-import os
-
+from pyupdater.config import PyiUpdaterConfig
 from pyupdater.key_handler import KeyHandler
 from pyupdater.package_handler import PackageHandler
 from pyupdater.uploader import Uploader
-from pyupdater.utils.config import TransistionDict
-from pyupdater.utils.storage import Storage
 
 
 class Core(object):
@@ -31,38 +26,30 @@ class Core(object):
 
             config (obj): config object
     """
-    def __init__(self, config=None, db=None):
-        self.config = TransistionDict()
-        # Important to keep this before updating config
-        if config is not None:
-            self.update_config(config, db)
 
-    def update_config(self, config, db):
+    def __init__(self, config=None):
+        self.config = PyiUpdaterConfig()
+        if config is not None:
+            self.update_config(config)
+
+    def update_config(self, config):
         """Updates internal config
 
         Args:
 
             config (obj): config object
         """
-        if not hasattr(config, 'DATA_DIR'):
-            config.DATA_DIR = None
-        if config.DATA_DIR is None:
-            config.DATA_DIR = os.getcwd()
+        self.config.update_config(config)
+        self._update(self.config)
 
-        if db is None:
-            self.db = Storage(config.DATA_DIR)
-        else:
-            self.db = db
-        self.config.from_object(config)
-        self._update(self.config, self.db)
-
-    def _update(self, config, db):
-        self.kh = KeyHandler(config, db)
-        self.ph = PackageHandler(config, db)
+    def _update(self, config):
+        self.kh = KeyHandler(config)
+        self.ph = PackageHandler(config)
         self.up = Uploader(config)
 
     def setup(self):
-        "Sets up root dir with required PyUpdater folders"
+        """Sets up root dir with required PyiUpdater folders
+        """
         self.ph.setup()
 
     def process_packages(self):
@@ -81,11 +68,13 @@ class Core(object):
         self.up.set_uploader(requested_uploader)
 
     def upload(self):
-        "Uploads files in deploy folder"
+        """Uploads files in deploy folder
+        """
         self.up.upload()
 
     def make_keys(self, count=3):
-        "Creates signing keys"
+        """Creates signing keys
+        """
         self.kh.make_keys(count)
 
     def revoke_key(self, count):

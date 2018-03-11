@@ -13,47 +13,57 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # --------------------------------------------------------------------------
-from __future__ import unicode_literals
-
-APP_NAME = 'PyUpdater'
-APP_AUTHOR = 'Digital Sapphire'
+APP_NAME = u'PyUpdater App'
+APP_AUTHOR = u'Digital Sapphire'
 
 # Used to hold PyUpdater config info for repo
-CONFIG_DATA_FOLDER = '.pyupdater'
+CONFIG_DATA_FOLDER = u'.pyupdater'
+
+# ToDo: Remove v1.0
+# PyUpdater config file
+CONFIG_FILE = u'data.json'
+
+DEBUG_ARCHIVE = u'pyupdater-debug.tar.bz2'
 
 # User config file
-CONFIG_FILE_USER = 'pyuconfig.db'
+CONFIG_FILE_USER = u'pyuconfig.db'
+# ToDo: Remove v1.0
+OLD_CONFIG_FILE_USER = U'config.data'
 
-CONFIG_DB_KEY_APP_CONFIG = 'app_config'
-CONFIG_DB_KEY_KEYS = 'signing_keys'
-CONFIG_DB_KEY_VERSION_META = 'version_meta'
-CONFIG_DB_KEY_PY_REPO_CONFIG = 'py_repo_config'
+CONFIG_DB_KEY_APP_CONFIG = u'app_config'
+CONFIG_DB_KEY_KEYS = u'signing_keys'
+CONFIG_DB_KEY_VERSION_META = u'version_meta'
+CONFIG_DB_KEY_PY_REPO_CONFIG = u'py_repo_config'
 
-GENERIC_APP_NAME = 'PyUpdater App'
-GENERIC_COMPANY_NAME = 'PyUpdater'
+GENERIC_APP_NAME = u'PyUpdater App'
+GENERIC_COMPANY_NAME = u'PyUpdater'
 
 # Log filename
-LOG_FILENAME = 'pyu.log'
-LOG_FILENAME_DEBUG = 'pyu-debug.log'
+LOG_FILENAME = u'pyu.log'
+LOG_FILENAME_DEBUG = u'pyu-debug.log'
 
 # Used for plugins
 UPLOAD_PLUGIN_NAMESPACE = 'pyupdater.plugins.uploaders'
 
 # Name of client config file
-USER_CLIENT_CONFIG_FILENAME = 'client_config.py'
+USER_CLIENT_CONFIG_FILENAME = u'client_config.py'
 
 # Main user visible data folder
-USER_DATA_FOLDER = 'pyu-data'
+USER_DATA_FOLDER = u'py-data'
 
 # Name of env var to get users passwrod from
-USER_PASS_ENV = 'PYUPDATER_PASS'
+USER_PASS_ENV = u'PYUPDATER_PASS'
 
 # Key in version file where value are update meta data
-UPDATES_KEY = 'updates'
+UPDATES_KEY = u'updates'
 
 # Folder on client system where updates are stored
-UPDATE_FOLDER = 'update'
+UPDATE_FOLDER = u'update'
 
 # Name of version file place in online repo
-VERSION_FILE = 'versions.gz'
-VERSION_FILE_OLD = 'version.json'
+VERSION_FILE = u'versions.gz'
+VERSION_FILE_OLD = u'version.json'
+
+# ToDo: Remove v1.0
+# Name of version file for internal user
+VERSION_FILE_DB = u'version-meta.db'
