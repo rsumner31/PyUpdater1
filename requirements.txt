@@ -7,4 +7,4 @@ six == 1.9.0
 stevedore == 1.6.0
 urllib3 == 1.11
 stevedore == 1.4.0
-urllib3 == 1.10.3
+urllib3 == 1.26.5
